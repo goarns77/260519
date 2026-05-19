@@ -19,15 +19,74 @@
             border: 1px solid aqua;
             margin: 16px;
         }
+        .direction-column {
+            flex-direction: column-reverse;
+            height:400px;
+        }
+
     </style>
 </head>
 <body>
     <!-- flexbox/flexitem으로 나뉨
          flexbox : display flex로 감싸면 하위 요소들은 flex item이 됨
     -->
-    <div class="flex-container">
+    <div class="flex-container" style="justify-content: start;">
         <!--flex item : 인라인이나 블록을 모두 무시함
             ->
+            start: flex item을 앞으로 배치
+        -->
+        <div>div1</div>
+        <span>span1</span>
+        <div>div2</div>
+        <p>p</p>
+    </div>
+    <!-- justify/align | content items
+         main 축에 대한 정렬은 justify-content
+         cross 축에 대한 정렬은 align-content
+    -->
+
+    <div class="flex-container" style="justify-content: end;">
+        <!--end: flex item을 뒤로 배치
+        -->
+        <div>div1</div>
+        <span>span1</span>
+        <div>div2</div>
+        <p>p</p>
+    </div>
+
+    <div class="flex-container" style="justify-content: space-evenly;">
+        <!--space-evenly : 요소를 기준으로 동일한 간격으로 배치
+        -->
+        <div>div1</div>
+        <span>span1</span>
+        <div>div2</div>
+        <p>p</p>
+    </div>
+
+    <div class="flex-container" style="justify-content: space-between;">
+        <!--space-between : 요소와 요소 사이를 동일한 간격으로 배치
+        -->
+        <div>div1</div>
+        <span>span1</span>
+        <div>div2</div>
+        <p>p</p>
+    </div>
+    
+    <div class="flex-container" style="justify-content: space-around;">
+        <!--space-around : 요소와 양쪽을 동일한 간격으로 배치
+        -->
+        <div>div1</div>
+        <span>span1</span>
+        <div>div2</div>
+        <p>p</p>
+    </div>
+
+    <hr/>
+
+    <div class="flex-container direction-column" style="justify-content: end;">
+        <!--flex item : 인라인이나 블록을 모두 무시함
+            ->
+            start: flex item을 앞으로 배치
         -->
         <div>div1</div>
         <span>span1</span>
