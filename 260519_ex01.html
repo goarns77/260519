@@ -11,14 +11,17 @@
         border: 5px solid green;
         padding: 20px;
         margin: 20px;
+        background-color: beige;
       }
     </style>
   </head>
   <body>
-    <p>p 태그는 위아래 1줄의 여백 존재</p>
+    <p>(200 + 20 *2 +5 *2) *(100 + 20 *2 +5 *2)위아래 1줄의 여백 존재</p>
+    <div>250*150 컨텐츠 박스</div>
+    <span>1줄을 다 차지 </span>
     <!--기본 박스 모델-->
-    <div>
-    1개 줄 전체를 차지
+    <div style="box-sizing: border-box">
+    200 * 100 보더 박스
     </div>
     다음 텍스트가 p태그처럼 밀려남
     <!--
