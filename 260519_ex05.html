@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .flex-container{
+            display:flex;
+        }
+        .flex-container > * {
+            width: 64px;
+            height: 64px;
+            border: 1px solid aqua;
+            margin: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- flexbox/flexitem으로 나뉨
+         flexbox : display flex로 감싸면 하위 요소들은 flex item이 됨
+    -->
+    <div class="flex-container">
+        <!--flex item : 인라인이나 블록을 모두 무시함
+            ->
+        -->
+        <div>div1</div>
+        <span>span1</span>
+        <div>div2</div>
+        <p>p</p>
+    </div>
+</body>
+</html>

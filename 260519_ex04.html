@@ -1,52 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Float</title>
     <style>
-        .floatbox_L{
-            width: 100px;
-            height: 100px;
-            background-color: lightblue;
-            float: left;
-        }
-        .floatbox_R{
-            width: 100px;
-            height: 100px;
-            background-color: green;
-            float: right;
-        }
-        .container{
-            width: 200px;
-            height: 200px;
-            border: 2px solid black;
-        }
+      .floatbox_L {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        float: left;
+      }
+      .floatbox_R {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        float: right;
+      }
+      .container {
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+      }
+      .static {
+        background-color: aquamarine;
+        top: 12px;
+        left: 12px;
+        /* static이므로 top, left 속성이 적용되지 않음
+               
+            */
+      }
+      .relative {
+        position: relative;
+        background-color: lightsalmon;
+        top: 12px;
+        left: 12px;
+        /* relative에서는 정상적으로 top, left 적용*/
+      }
+      .absolute {
+        position: absolute;
+        background-color: lightcoral;
+        top: 12px;
+        left: 12px;
+        /* absolute에서는 속해 있는 요소 중에서 
+               static이 아닌 요소를 기준으로 top, left 적용
+            */
+      }
+      .fixed {
+        position: fixed;
+        background-color: lightgreen;
+        top: 24px;
+        left: 16px;
+        /* fixed에서는 body를 기준으로 top, left 적용*/
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="floatbox_L"></div>
     <div class="floatbox_L"></div>
     <div class="floatbox_R"></div>
     <div class="floatbox_R"></div>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate autem fugiat mollitia maiores iure quidem placeat error consequuntur aliquam qui, accusamus aperiam architecto tempore asperiores tenetur voluptate voluptatum minus fuga.
-    <div class="container" style="overflow: hidden;">
-        <div style="clear:both"></div>
-        <!-- 자식 요소가 모두 float면 스스로의 height를 계산하지 못함 
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate autem
+    fugiat mollitia maiores iure quidem placeat error consequuntur aliquam qui,
+    accusamus aperiam architecto tempore asperiores tenetur voluptate voluptatum
+    minus fuga.
+    <div class="container" style="overflow: hidden">
+      <div style="clear: both"></div>
+      <!-- 자식 요소가 모두 float면 스스로의 height를 계산하지 못함 
              -> overflow: hidden; / clear: both; 사용
 
              float가 밑으로 처져도 서로 충돌해서 겹칠 수 없음
              -> overflow: hidden;
 
         -->
-        <div class="floatbox_L">AK</div>
-        <div class="floatbox_L">AR</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat odit quia dolorem delectus porro nesciunt! Natus perspiciatis rerum blanditiis ullam temporibus doloremque. Iusto, deleniti nostrum officiis tenetur dolorem nihil quod!
+      <div class="floatbox_L">AK</div>
+      <div class="floatbox_L">AR</div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat odit
+      quia dolorem delectus porro nesciunt! Natus perspiciatis rerum blanditiis
+      ullam temporibus doloremque. Iusto, deleniti nostrum officiis tenetur
+      dolorem nihil quod!
     </div>
-    <br/>
+    <br />
     <!-- emmet : 선택자의 문법을 바탕으로 html 태그를 빠르게 만드는 방법 -->
 
-    <hr/>
-    
-</body>
+    <hr />
+
+    <h3>Position</h3>
+    <div style="position: relative">
+      <div class="box static">
+        <div class="box absolute">1</div>
+      </div>
+      <div class="box relative">
+        <!-- relative는 static에서 자신이 차지할 영역을 그대로 차지한 채, top, left, right, bottom 속성이 적용됨 -->
+        <div class="box absolute">2</div>
+      </div>
+      <div class="box absolute">
+        <!-- absolute는 속해 있는 요소 중에서 static이 아닌 요소를 기준으로 top, left, right, bottom 속성이 적용됨, 최상위 요소는 body이므로 상위 요소가 static뿐이면 body를 기준으로 적용됨 -->
+        <div class="box absolute">3</div>
+      </div>
+      <div class="box fixed">fixed</div>
+      <!-- fixed는 스크롤을 해도 항상 같은 위치에 있음 -->
+      <div
+        style="
+          position: sticky;
+          width: 100px;
+          height: 100px;
+          background-color: yellow;
+          top: 24px;
+          left: 16px;
+        "
+      >
+        sticky
+      </div>
+      <!-- sticky는 스크롤을 하면 fixed와 같이 동작하다가, 지정된 위치에 도달하면 고정됨 -->
+
+      <!-- 겹치는 위치를 바꾸고 싶다면 z-index 속성 사용 (높이)-->
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+      quisquam? Soluta molestiae iusto laudantium illum et, ducimus sapiente rem
+      ad nisi? Quas est debitis nulla explicabo. Numquam, ullam dolore.
+      Perspiciatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Adipisci magni quaerat culpa explicabo ad facilis earum minima consectetur
+      recusandae enim nesciunt aliquam, nihil itaque possimus dicta ab animi
+      laudantium voluptas! Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. In, fuga porro? Cupiditate laborum ipsam optio corrupti est repellat
+      quod. Illum et sapiente enim, repellat veniam assumenda ipsam illo
+      asperiores ab!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptas laboriosam consequuntur fugit labore quis reprehenderit, repellat quasi, illum praesentium qui autem debitis officiis non ullam voluptatibus laudantium sit consequatur.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas temporibus nam quae voluptas ipsam laboriosam, nemo reprehenderit id unde ea porro dolorem modi consectetur in autem. Ipsum non deleniti pariatur!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati modi error sunt odit recusandae quia velit aut vitae, labore sapiente doloribus atque voluptatum nam a sed architecto. Expedita, distinctio hic!
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quae quo officia deleniti, quaerat eos reiciendis. Accusamus quos eligendi nam corrupti, veniam facere vero, aliquid expedita at illo repudiandae deserunt?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius accusantium quia eaque sit, veniam qui esse laboriosam quo, necessitatibus inventore, aut impedit in voluptas? In eveniet culpa obcaecati tenetur ipsa?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto perspiciatis autem aperiam laborum cumque a, atque molestias iure labore nemo blanditiis odio fugit explicabo maiores eius nam recusandae nesciunt voluptatum.
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum velit quisquam cum nam obcaecati at voluptate quod doloremque, nulla, cumque laborum. Et veritatis sit aut excepturi consequatur mollitia officia culpa?
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia sit non corrupti. Numquam ex reiciendis odit ullam id cupiditate vitae libero? Itaque sint rem natus quisquam, deleniti delectus dolore assumenda?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis perspiciatis cumque quis quod cum tempore nobis amet officia soluta debitis minus magni, quia reprehenderit quasi maxime nulla facere deleniti nemo!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat incidunt laborum omnis minus natus aliquam doloremque modi, dolor inventore corrupti. Magnam molestiae hic consequatur aperiam modi dignissimos reprehenderit impedit ex.
+      <hr/>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum suscipit ducimus reprehenderit. Similique illum, impedit, voluptas eum mollitia temporibus esse cum repudiandae, iure veniam quidem veritatis nostrum. Porro, laudantium debitis!
+
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quis, laborum a distinctio eveniet natus asperiores tenetur molestiae soluta rerum? Doloribus architecto fugit consectetur quo! Saepe architecto harum minima dolores.
+    </div>
+  </body>
 </html>
