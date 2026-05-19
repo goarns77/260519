@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상속과 사이즈</title>
+    <style>
+        div {
+            background-color:beige;
+        }
+        .parent{
+            font-size: 20px;
+            width: 400px;
+            height: 200px;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid blue;
+            /*
+            * box 계열 옵션은 상속되지 않으나, 폰트 계열은 상속됨
+            */
+            color: blue;
+            font-size: 20px;
+            text-align: right;
+        }
+        .child{
+            width: 350px;
+            height: 150px;
+            border: 2px solid red;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="parent"> 부모 요소
+        <div class="child">자식 요소</div>
+    </div>
+
+  </body>
+</html>
