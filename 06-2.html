@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>햄스터 숭배소 - 확장판</title>
+    <!-- 최신 Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 최신 Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Position을 활용한 히어로 섹션 스타일링 */
+        .hero-bg {
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+        .hero-text {
+            /* Position absolute와 Transform을 이용한 중앙 정렬 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- 1. Navbar (sticky-top을 통한 Position 고정, Flexbox를 이용한 레이아웃) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <span class="fs-4">🐹 햄스터 숭배소</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#">홈</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">소개</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">갤러리</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning fw-bold" href="#">공물 바치기</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section (Positioning 및 Flexbox 적용) -->
+    <header class="hero-bg">
+        <!-- 배경 이미지, 실제 이미지가 없을 경우를 대비해 단색 배경 위에 어둡게 처리 -->
+        <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=1200&q=80" alt="Hamster Background" class="hero-img">
+        <div class="hero-text d-flex flex-column align-items-center justify-content-center">
+            <h1 class="display-3 fw-bold mb-3">위대한 햄스터</h1>
+            <p class="lead mb-4">작고 귀여운 존재를 경배하라. 해바라기씨를 준비하라.</p>
+            <button type="button" class="btn btn-warning btn-lg shadow px-4 py-2 fw-bold">해바라기씨 바치기 🌻</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-5 flex-grow-1">
+        
+        <!-- 3. Features (반응형 Grid: 모바일 1열, 데스크탑 3열, Flexbox로 요소 정렬) -->
+        <div class="row text-center mb-5 justify-content-center">
+            <div class="col-md-4 mb-4 mb-md-0 d-flex flex-column align-items-center">
+                <div class="bg-primary text-white rounded-circle mb-3 shadow" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                    <span class="fs-2">🌟</span>
+                </div>
+                <h3>귀여움</h3>
+                <p class="text-muted">세상을 구하는 절대적인 귀여움을 자랑합니다.</p>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0 d-flex flex-column align-items-center">
+                <div class="bg-success text-white rounded-circle mb-3 shadow" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                    <span class="fs-2">🏃</span>
+                </div>
+                <h3>민첩성</h3>
+                <p class="text-muted">쳇바퀴를 돌 때 보여주는 놀라운 속도와 체력.</p>
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center">
+                <div class="bg-danger text-white rounded-circle mb-3 shadow" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                    <span class="fs-2">🧀</span>
+                </div>
+                <h3>식성</h3>
+                <p class="text-muted">볼이 터지도록 먹이를 저장하는 위대한 능력.</p>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <!-- 4. Cards (반응형 카드 레이아웃: row-cols, Flexbox로 내부 높이 맞춤) -->
+        <h2 class="text-center mb-4 fw-bold">주요 숭배 대상</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 bg-light">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title d-flex justify-content-between align-items-center">
+                            골든 햄스터 <span class="badge bg-warning text-dark">인기</span>
+                        </h5>
+                        <!-- flex-grow-1로 남는 공간을 채워 버튼들이 하단에 정렬되도록 함 -->
+                        <p class="card-text flex-grow-1 text-secondary mt-2">크고 온순한 성격으로 많은 신도들에게 사랑받는 대표적인 종입니다.</p>
+                        <button class="btn btn-outline-primary mt-auto w-100">자세히 보기</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 bg-light">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">드워프 햄스터</h5>
+                        <p class="card-text flex-grow-1 text-secondary mt-2">작은 체구에 활발한 성격으로 치명적인 귀여움을 발산합니다.</p>
+                        <button class="btn btn-outline-primary mt-auto w-100">자세히 보기</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 bg-light">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title d-flex justify-content-between align-items-center">
+                            로보로브스키 <span class="badge bg-info">스피드</span>
+                        </h5>
+                        <p class="card-text flex-grow-1 text-secondary mt-2">가장 작고 가장 빠른 종. 관상용으로 적합한 신성한 존재입니다.</p>
+                        <button class="btn btn-outline-primary mt-auto w-100">자세히 보기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 5. Footer (Flexbox 적용, mt-auto로 하단 고정 효과) -->
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0">&copy; 2026 햄스터 숭배소. All rights reserved.</p>
+            <ul class="list-inline mb-0 mt-2 mt-md-0 d-flex gap-3">
+                <li class="list-inline-item m-0"><a href="#" class="text-white-50 text-decoration-none">이용약관</a></li>
+                <li class="list-inline-item m-0"><a href="#" class="text-white-50 text-decoration-none">개인정보처리방침</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
